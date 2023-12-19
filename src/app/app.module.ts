@@ -10,6 +10,7 @@ import { SidebarComponent } from './components/sidebar/sidebar.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { HomeComponent } from './pages/home/home.component';
 import { LivroCardComponent } from './components/livro/livro-card/livro-card.component';
+import { SearchComponent } from './pages/search/search.component';
 
 @NgModule({
   declarations: [
@@ -18,6 +19,7 @@ import { LivroCardComponent } from './components/livro/livro-card/livro-card.com
     FooterComponent,
     HomeComponent,
     LivroCardComponent,
+    SearchComponent,
   ],
   imports: [
     BrowserModule,
