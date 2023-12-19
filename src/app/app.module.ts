@@ -9,9 +9,16 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { SidebarComponent } from './components/sidebar/sidebar.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { HomeComponent } from './pages/home/home.component';
+import { LivroCardComponent } from './components/livro/livro-card/livro-card.component';
 
 @NgModule({
-  declarations: [AppComponent, SidebarComponent, FooterComponent, HomeComponent],
+  declarations: [
+    AppComponent,
+    SidebarComponent,
+    FooterComponent,
+    HomeComponent,
+    LivroCardComponent,
+  ],
   imports: [
     BrowserModule,
     AppRoutingModule,

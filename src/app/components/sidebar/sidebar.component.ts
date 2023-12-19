@@ -1,23 +1,22 @@
-import { Component, HostListener } from '@angular/core';
+import { Component, HostListener, OnInit } from '@angular/core';
+import { SizeService } from 'src/app/services/size.service';
 
 @Component({
   selector: 'app-sidebar',
   templateUrl: './sidebar.component.html',
   styleUrls: ['./sidebar.component.scss'],
 })
-export class SidebarComponent {
+export class SidebarComponent implements OnInit {
   largeStatus: boolean = false;
 
-  private checkWindowSize() {
-    this.largeStatus = window.innerWidth >= 800;
-  }
+  constructor(private service: SizeService) {}
 
-  @HostListener('window:resize', ['$event'])
-  onResize() {
-    this.checkWindowSize();
+  ngOnInit(): void {
+    this.largeStatus = this.service.largeStatus;
   }
 
   modify() {
-    this.largeStatus = !this.largeStatus;
+    this.service.modify();
+    this.largeStatus = this.service.largeStatus;
   }
 }

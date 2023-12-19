@@ -1,1 +1,9 @@
-<p>home works!</p>
+<main class="container" [ngClass]="{ 'containerM': largeStatus, 'containerS': !largeStatus }">
+    <div class="livro">
+        <app-livro-card></app-livro-card>
+        <app-livro-card></app-livro-card>
+        <app-livro-card></app-livro-card>
+        <app-livro-card></app-livro-card>
+        <app-livro-card></app-livro-card>
+    </div>
+</main>

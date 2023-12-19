@@ -1,0 +1,25 @@
+.container {
+    height: 100%;
+    padding: 1rem;
+
+    transition: .2s;
+
+    .livro {
+        width: 100%;
+        padding: 1rem;
+
+        overflow-x: scroll;
+        scrollbar-width: thin;
+
+        display: flex;
+        gap: 1rem;
+    }
+}
+
+.containerM {
+    width: calc(100vw - 350px);
+}
+
+.containerS {
+    width: calc(100vw - 80px);
+}
