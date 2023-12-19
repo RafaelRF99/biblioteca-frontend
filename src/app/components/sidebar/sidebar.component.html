@@ -1,0 +1,16 @@
+<div class="container" [ngClass]="{ 'widthMedium': largeStatus, 'widthSmall': !largeStatus }">
+    <span class="icon" (click)="modify()">
+        <b>{{ largeStatus ? 'BTread' : 'BT' }}</b>
+    </span>
+    <div class="content">
+        <div class="option">
+            <mat-icon>home</mat-icon>
+            <p *ngIf="largeStatus">Home</p>
+        </div>
+        <hr>
+        <div class="option">
+            <mat-icon>search</mat-icon>
+            <p *ngIf="largeStatus">Pesquisar</p>
+        </div>
+    </div>
+</div>
