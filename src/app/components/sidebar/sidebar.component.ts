@@ -8,6 +8,13 @@ import { SizeService } from 'src/app/services/size.service';
 })
 export class SidebarComponent implements OnInit {
   largeStatus: boolean = false;
+  categories = [
+    {
+      name: 'Categorias',
+      options: false,
+      subcategories: ['Ação', 'Terror', 'Animação'],
+    },
+  ];
 
   constructor(private service: SizeService) {}
 
@@ -18,5 +25,9 @@ export class SidebarComponent implements OnInit {
   modify() {
     this.service.modify();
     this.largeStatus = this.service.largeStatus;
+  }
+
+  handleOption(i: number) {
+    this.categories[i].options = !this.categories[i].options;
   }
 }

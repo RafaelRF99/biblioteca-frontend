@@ -3,14 +3,27 @@
         <b>{{ largeStatus ? 'BTread' : 'BT' }}</b>
     </span>
     <div class="content">
-        <div class="option">
+        <div class="item" routerLink="/">
             <mat-icon>home</mat-icon>
             <p *ngIf="largeStatus">Home</p>
         </div>
         <hr>
-        <div class="option">
+        <div class="item" routerLink="/search">
             <mat-icon>search</mat-icon>
             <p *ngIf="largeStatus">Pesquisar</p>
+        </div>
+        <div class="options" *ngFor="let category of categories; let i = index">
+            <hr>
+            <div class="items" (click)="handleOption(i)">
+                <div>
+                    <mat-icon>category</mat-icon>
+                    <p *ngIf="largeStatus">{{category.name}}</p>
+                </div>
+                <mat-icon>check_box_outline_blank</mat-icon>
+            </div>
+            <span class="options_selected" *ngIf="category.options">
+                <div *ngFor="let subcategory of category.subcategories">{{ subcategory}}</div>
+            </span>
         </div>
     </div>
 </div>
