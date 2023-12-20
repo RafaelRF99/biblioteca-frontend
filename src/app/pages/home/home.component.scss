@@ -1,25 +1,32 @@
 .container {
-    height: 100%;
-    padding: 1rem;
+  width: 100%;
+  height: 100%;
 
-    transition: .2s;
+  transition: 0.2s;
+
+  .content {
+    .category {
+      font-size: 2rem;
+      font-weight: 500;
+    }
 
     .livro {
-        width: 100%;
-        padding: 1rem;
+      width: 100%;
+      padding: 2rem 0 1rem 0;
 
-        overflow-x: scroll;
-        scrollbar-width: thin;
+      overflow-x: scroll;
+      scrollbar-width: thin;
 
-        display: flex;
-        gap: 1rem;
+      display: flex;
+      gap: 1rem;
     }
+  }
 }
 
 .containerM {
-    width: calc(100vw - 350px);
+  width: calc(100vw - calc(var(--sizeWidthSideMedium) + 3.1rem));
 }
 
 .containerS {
-    width: calc(100vw - 80px);
+  width: calc(100vw - calc(var(--sizeWidthSideSmall) + 3.1rem));
 }

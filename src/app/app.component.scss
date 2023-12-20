@@ -1,7 +1,12 @@
 .container {
+  width: 100%;
+
+  .main {
     display: flex;
 
-    .main {
-        width: 100%;
+    div {
+      padding: 1rem;
+      flex-grow: 1;
     }
+  }
 }

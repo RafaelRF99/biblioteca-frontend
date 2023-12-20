@@ -1,16 +1,13 @@
 .container {
-    height: 100%;
-    padding: 1rem;
+  height: 100%;
 
-    padding-top: 2rem;
+  .search {
+    display: flex;
+    justify-content: center;
 
-    .search {
-        display: flex;
-        justify-content: center;
-        
-        .filter {
-            width: 500px;
-            max-width: 500px;
-        }
+    .filter {
+      width: 500px;
+      max-width: 500px;
     }
+  }
 }
