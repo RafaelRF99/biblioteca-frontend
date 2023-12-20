@@ -7,7 +7,7 @@ import { SizeService } from 'src/app/services/size.service';
   styleUrls: ['./sidebar.component.scss'],
 })
 export class SidebarComponent implements OnInit {
-  largeStatus: boolean = false;
+  largeStatus!: boolean;
   categories = [
     {
       name: 'Categorias',
@@ -20,13 +20,20 @@ export class SidebarComponent implements OnInit {
 
   ngOnInit(): void {
     this.largeStatus = this.service.largeStatus;
+    this.service.largeStatusChanged.subscribe((status: boolean) => {
+      this.largeStatus = status;
+    });
+
+    window.addEventListener('resize', () => {
+      this.service.checkWindowSize();
+    });
   }
 
   modify() {
     this.service.modify();
     this.largeStatus = this.service.largeStatus;
     if (!this.largeStatus) {
-      for (let x = 0; x <= this.categories.length; x++) {
+      for (let x = 0; x < this.categories.length; x++) {
         this.categories[x].options = false;
       }
     }

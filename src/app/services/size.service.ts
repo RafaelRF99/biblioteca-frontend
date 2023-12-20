@@ -4,16 +4,26 @@ import { EventEmitter, HostListener, Injectable } from '@angular/core';
   providedIn: 'root',
 })
 export class SizeService {
-  largeStatus: boolean = true;
+  largeStatus!: boolean;
   largeStatusChanged: EventEmitter<boolean> = new EventEmitter<boolean>();
 
-  private checkWindowSize() {
+  constructor() {
     this.largeStatus = window.innerWidth >= 800;
     this.largeStatusChanged.emit(this.largeStatus);
   }
 
+  checkWindowSize() {
+    if (window.innerWidth >= 800) {
+      this.largeStatus = true;
+      this.largeStatusChanged.emit(this.largeStatus);
+    } else {
+      this.largeStatus = false;
+      this.largeStatusChanged.emit(this.largeStatus);
+    }
+  }
+
   @HostListener('window:resize', ['$event'])
-  onResize() {
+  onResize(event: Event) {
     this.checkWindowSize();
   }
 
