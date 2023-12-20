@@ -25,9 +25,16 @@ export class SidebarComponent implements OnInit {
   modify() {
     this.service.modify();
     this.largeStatus = this.service.largeStatus;
+    if (!this.largeStatus) {
+      for (let x = 0; x <= this.categories.length; x++) {
+        this.categories[x].options = false;
+      }
+    }
   }
 
   handleOption(i: number) {
-    this.categories[i].options = !this.categories[i].options;
+    if (this.largeStatus) {
+      this.categories[i].options = !this.categories[i].options;
+    }
   }
 }
