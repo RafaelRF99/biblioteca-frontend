@@ -1,3 +1,9 @@
+:root {
+    --sizeWidthSideMedium: 350px;
+    --sizeWidthSideSmall: 80px;
+    --sizeFooter: 50px;
+}
+
 * {
     box-sizing: border-box;
     padding: 0;
@@ -8,11 +14,11 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 
 
 .widthMedium {
-    width: 350px;
+    width: var(--sizeWidthSideMedium);
     padding: 2rem;
 }
 
 .widthSmall {
-    width: 80px;
+    width: var(--sizeWidthSideSmall);
     padding: 2rem .7rem;
 }
