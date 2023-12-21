@@ -3,6 +3,7 @@ export interface ILivro {
   author: string;
   local: string;
   category: string;
+  bookCover: string;
   lauch: Date;
   createAt: Date;
 }
