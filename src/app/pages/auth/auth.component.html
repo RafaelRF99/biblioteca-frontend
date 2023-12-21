@@ -1,0 +1,31 @@
+<div class="container">
+  <h1 class="title">Login</h1>
+  <form [formGroup]="form" class="form">
+    <mat-form-field appearance="outline">
+      <mat-label>Email</mat-label>
+      <input
+        type="email"
+        matInput
+        formControlName="email"
+        placeholder="exemplo@exemplo.com"
+      />
+      <mat-error *ngIf="form.get('email')?.errors?.['required']"
+        >*Email obrigatório</mat-error
+      >
+      <mat-error *ngIf="form.get('email')?.errors?.['email']"
+        >*Email inválido</mat-error
+      >
+    </mat-form-field>
+    <mat-form-field appearance="outline">
+      <mat-label>Senha</mat-label>
+      <input type="password" matInput formControlName="pass" />
+      <mat-error *ngIf="form.get('pass')?.errors?.['required']"
+        >*Senha obrigatória</mat-error
+      >
+      <mat-error *ngIf="form.get('pass')?.errors?.['minlength']"
+        >*Qtd minima 6</mat-error
+      >
+    </mat-form-field>
+    <button mat-raised-button color="primary">ENTRAR</button>
+  </form>
+</div>
