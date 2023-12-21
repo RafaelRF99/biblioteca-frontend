@@ -1,27 +1,30 @@
 .card {
-    width: 200px;
-    height: 320px;
+  width: 200px;
+  height: 340px;
 
-    border: none;
-    border-radius: 20px;
+  border: none;
+  border-radius: 20px;
 
-    text-align: center;
+  text-align: center;
 
-    .img {
-        width: 100%;
-        height: 280px;
+  p {
+    padding: 0.2rem 1rem;
+  }
 
-        display: flex;
-        justify-content: center;
-        
-        padding: 2rem 0;
-    }
+  .img {
+    width: 100%;
+    height: 280px;
 
-    &:hover {
-        scale: 1.01;
-        transition: .3s;
-        
-        cursor: pointer;
-    }
+    display: flex;
+    justify-content: center;
 
+    padding: 2rem 0;
+  }
+
+  &:hover {
+    scale: 1.01;
+    transition: 0.3s;
+
+    cursor: pointer;
+  }
 }

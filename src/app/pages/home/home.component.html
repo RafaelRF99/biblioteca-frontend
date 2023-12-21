@@ -3,27 +3,9 @@
   [ngClass]="{ containerM: largeStatus, containerS: !largeStatus }"
 >
   <div class="content">
-    <p class="category">Estratégia</p>
-    <div class="livro">
-      <app-livro-card></app-livro-card>
-      <app-livro-card></app-livro-card>
-      <app-livro-card></app-livro-card>
-      <app-livro-card></app-livro-card>
-      <app-livro-card></app-livro-card>
-      <app-livro-card></app-livro-card>
-      <app-livro-card></app-livro-card>
-      <app-livro-card></app-livro-card>
-      <app-livro-card></app-livro-card>
-      <app-livro-card></app-livro-card>
-      <app-livro-card></app-livro-card>
-      <app-livro-card></app-livro-card>
-      <app-livro-card></app-livro-card>
-      <app-livro-card></app-livro-card>
-      <app-livro-card></app-livro-card>
-      <app-livro-card></app-livro-card>
-      <app-livro-card></app-livro-card>
-      <app-livro-card></app-livro-card>
-      <app-livro-card></app-livro-card>
+    <p class="category">Ação</p>
+    <div class="livro" *ngFor="let livro of livros">
+      <app-livro-card [livro]="livro"></app-livro-card>
     </div>
   </div>
 </main>
