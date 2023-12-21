@@ -44,4 +44,8 @@ export class SidebarComponent implements OnInit {
       this.categories[i].options = !this.categories[i].options;
     }
   }
+
+  handleItems() {
+    this.service.modify();
+  }
 }
