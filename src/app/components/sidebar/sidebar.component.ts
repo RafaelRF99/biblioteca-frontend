@@ -1,4 +1,5 @@
 import { Component, HostListener, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { SizeService } from 'src/app/services/size.service';
 
 @Component({
@@ -16,7 +17,7 @@ export class SidebarComponent implements OnInit {
     },
   ];
 
-  constructor(private service: SizeService) {}
+  constructor(private service: SizeService, private route: Router) {}
 
   ngOnInit(): void {
     this.largeStatus = this.service.largeStatus;
@@ -48,5 +49,10 @@ export class SidebarComponent implements OnInit {
   handleItems(i: number) {
     this.service.modify();
     this.categories[i].options = true;
+  }
+
+  handleCategory(category: string) {
+    this.service.setSelectedCategory(category.toLocaleLowerCase());
+    this.route.navigate(['/category']);
   }
 }

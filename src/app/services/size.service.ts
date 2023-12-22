@@ -5,6 +5,7 @@ import { EventEmitter, HostListener, Injectable } from '@angular/core';
 })
 export class SizeService {
   largeStatus!: boolean;
+  selectedCategory!: string;
   largeStatusChanged: EventEmitter<boolean> = new EventEmitter<boolean>();
 
   constructor() {
@@ -30,5 +31,9 @@ export class SizeService {
   modify() {
     this.largeStatus = !this.largeStatus;
     this.largeStatusChanged.emit(this.largeStatus);
+  }
+
+  setSelectedCategory(category: string) {
+    this.selectedCategory = category;
   }
 }

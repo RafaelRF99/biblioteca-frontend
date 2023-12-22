@@ -1,0 +1,14 @@
+<main
+  class="container"
+  [ngClass]="{ containerM: largeStatus, containerS: !largeStatus }"
+>
+  <div class="content" *ngIf="notFound; else not">
+    <p class="category">Ação</p>
+    <div class="livro" *ngFor="let livro of livros">
+      <app-livro-card [livro]="livro"></app-livro-card>
+    </div>
+  </div>
+</main>
+<ng-template #not>
+  <p>Nada encontrado, tente mais tarde...</p>
+</ng-template>
