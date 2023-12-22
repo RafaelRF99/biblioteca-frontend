@@ -15,4 +15,12 @@ export class LivroService {
   getAll(): Observable<ILivro[]> {
     return this.http.get<ILivro[]>(this.apiUrl);
   }
+
+  filterCategory(category: string): Observable<ILivro[]> {
+    const url = `${this.apiUrl}/filter?category=${encodeURIComponent(
+      category
+    )}`;
+
+    return this.http.get<ILivro[]>(url);
+  }
 }
