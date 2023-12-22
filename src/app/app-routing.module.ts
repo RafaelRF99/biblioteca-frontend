@@ -20,7 +20,7 @@ const routes: Routes = [
     component: AuthComponent,
   },
   {
-    path: 'category',
+    path: 'category/:id',
     component: CategoryComponent,
   },
 ];

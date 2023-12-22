@@ -9,8 +9,13 @@ import { environment } from 'src/environments/environment';
 })
 export class LivroService {
   private readonly apiUrl = environment.apiUrl;
+  selectedCategory!: string;
 
   constructor(private http: HttpClient) {}
+
+  setSelectedCategory(category: string) {
+    this.selectedCategory = category;
+  }
 
   getAll(): Observable<ILivro[]> {
     return this.http.get<ILivro[]>(this.apiUrl);
