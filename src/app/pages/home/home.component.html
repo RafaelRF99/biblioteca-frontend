@@ -3,9 +3,11 @@
   [ngClass]="{ containerM: largeStatus, containerS: !largeStatus }"
 >
   <div class="content" *ngIf="notFound; else not">
-    <p class="category">Ação</p>
-    <div class="livro" *ngFor="let livro of livros">
-      <app-livro-card [livro]="livro"></app-livro-card>
+    <p class="category">Geral</p>
+    <div class="books">
+      <div *ngFor="let livro of livros">
+        <app-livro-card [livro]="livro"></app-livro-card>
+      </div>
     </div>
   </div>
 </main>
