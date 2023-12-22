@@ -13,16 +13,17 @@ export class HomeComponent implements OnInit {
   largeStatus: boolean = false;
   subscription: Subscription;
   livros!: ILivro[];
-  notFound: boolean = true;
+  notFound!: boolean;
 
   constructor(private service: SizeService, private http: LivroService) {
     this.subscription = this.service.largeStatusChanged.subscribe((status) => {
       this.largeStatus = status;
     });
     this.http.getAll().subscribe((livro) => {
-      if (livro) {
+      try {
         this.livros = livro;
-      } else {
+        this.notFound = true;
+      } catch (error) {
         this.notFound = false;
       }
     });
