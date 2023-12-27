@@ -1,5 +1,6 @@
 import { Component, HostListener, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { categoryList } from 'src/app/constants/category';
 import { LivroService } from 'src/app/services/livro.service';
 import { SizeService } from 'src/app/services/size.service';
 
@@ -14,7 +15,7 @@ export class SidebarComponent implements OnInit {
     {
       name: 'Categorias',
       options: false,
-      subcategories: ['Ação', 'Terror', 'Animação'],
+      subcategories: categoryList,
     },
   ];
 
