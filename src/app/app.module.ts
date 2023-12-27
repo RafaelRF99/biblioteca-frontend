@@ -4,6 +4,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { MatIconModule } from '@angular/material/icon';
 import { MatInputModule } from '@angular/material/input';
 import { MatButtonModule } from '@angular/material/button';
+import { MatDialogModule } from '@angular/material/dialog';
 
 import { HttpClientModule } from '@angular/common/http';
 import { ReactiveFormsModule } from '@angular/forms';
@@ -18,6 +19,8 @@ import { LivroCardComponent } from './components/livro/livro-card/livro-card.com
 import { SearchComponent } from './pages/search/search.component';
 import { AuthComponent } from './pages/auth/auth.component';
 import { CategoryComponent } from './pages/category/category.component';
+import { LivroModalComponent } from './components/livro/livro-modal/livro-modal.component';
+import { FontDirective } from './directives/font.directive';
 
 @NgModule({
   declarations: [
@@ -29,6 +32,8 @@ import { CategoryComponent } from './pages/category/category.component';
     SearchComponent,
     AuthComponent,
     CategoryComponent,
+    LivroModalComponent,
+    FontDirective,
   ],
   imports: [
     BrowserModule,
@@ -39,6 +44,7 @@ import { CategoryComponent } from './pages/category/category.component';
     HttpClientModule,
     ReactiveFormsModule,
     MatButtonModule,
+    MatDialogModule,
   ],
   providers: [],
   bootstrap: [AppComponent],
