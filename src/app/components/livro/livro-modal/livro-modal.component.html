@@ -1,14 +1,15 @@
 <div class="modal">
-    <div class="title" appFont>
-        <h1>{{ livro.title }}
-            <hr>
-        </h1>
-        <p><b>Descrição:</b> {{livro.description}}</p>
-    </div>
-    <p></p>
-    <p>Categoria: {{ livro.category | titlecase }}</p>
-    <p>Lançamento: {{ livro.lauch | date:'dd/MM/yyyy' }}</p>
-    <a href="{{livro.local}}" target="_blank">
-        <button mat-raised-button color="primary">LER LIVRO</button>
-    </a>
+  <div class="title" appFont>
+    <h1>
+      {{ livro.title }}
+      <hr />
+    </h1>
+    <p><b>Descrição:</b> {{ livro.description }}</p>
+  </div>
+  <p></p>
+  <p>Categoria: {{ livro.category | titlecase }}</p>
+  <p>Lançamento: {{ livro.launch | date : "dd/MM/yyyy" }}</p>
+  <a href="{{ livro.local }}" target="_blank">
+    <button mat-raised-button color="primary">LER LIVRO</button>
+  </a>
 </div>

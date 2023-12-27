@@ -5,6 +5,6 @@ export interface ILivro {
   local: string;
   category: string;
   bookCover: string;
-  lauch: Date;
+  launch: Date;
   createAt: Date;
 }
