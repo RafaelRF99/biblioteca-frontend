@@ -9,12 +9,10 @@ import { ILivro } from 'src/app/interfaces/livro';
 })
 export class LivroModalComponent implements OnInit {
   livro!: ILivro;
-  background!: string;
 
   constructor(@Inject(MAT_DIALOG_DATA) public data: { livro: ILivro }) {}
 
   ngOnInit(): void {
     this.livro = this.data.livro;
-    this.background = this.livro.bookCover;
   }
 }
