@@ -1,0 +1,121 @@
+<div class="container">
+  <h1 appFont>Lançar livro</h1>
+  <form class="form" [formGroup]="form">
+    <div class="two_input">
+      <mat-form-field appearance="outline">
+        <mat-label>Titulo</mat-label>
+        <input
+          type="text"
+          matInput
+          placeholder="Harry Potter"
+          formControlName="title"
+        />
+        <mat-error *ngIf="form.get('title')?.errors?.['required']"
+          >*Campo Obrigatório</mat-error
+        >
+      </mat-form-field>
+      <mat-form-field appearance="outline">
+        <mat-label>Autor</mat-label>
+        <input
+          type="text"
+          matInput
+          placeholder="J. K. Rowling"
+          formControlName="author"
+        />
+        <mat-error *ngIf="form.get('author')?.errors?.['required']"
+          >*Campo Obrigatório</mat-error
+        >
+      </mat-form-field>
+    </div>
+    <div class="two_input">
+      <mat-form-field appearance="outline">
+        <mat-label>Categoria</mat-label>
+        <mat-select formControlName="category">
+          <mat-option *ngFor="let category of categories" [value]="category">
+            {{ category }}
+          </mat-option>
+        </mat-select>
+        <mat-error *ngIf="form.get('category')?.errors?.['required']"
+          >*Campo Obrigatório</mat-error
+        >
+      </mat-form-field>
+
+      <mat-form-field appearance="outline">
+        <mat-label>Data lançamento</mat-label>
+        <input matInput [matDatepicker]="picker" formControlName="launch" />
+        <mat-hint>Mês/Dia/Ano</mat-hint>
+        <mat-datepicker-toggle
+          matIconSuffix
+          [for]="picker"
+        ></mat-datepicker-toggle>
+        <mat-datepicker #picker></mat-datepicker>
+        <mat-error *ngIf="form.get('launch')?.errors?.['required']"
+          >*Campo Obrigatório</mat-error
+        >
+      </mat-form-field>
+    </div>
+    <div class="full">
+      <mat-form-field appearance="outline">
+        <mat-label>Descrição</mat-label>
+        <textarea
+          rows="5"
+          class="textarea"
+          matInput
+          placeholder="Descrição aqui..."
+          formControlName="description"
+        ></textarea>
+        <mat-error *ngIf="form.get('description')?.errors?.['required']"
+          >*Campo Obrigatório</mat-error
+        >
+        <mat-error *ngIf="form.get('description')?.errors?.['minlength']"
+          >*Minímo de 50 caracteres</mat-error
+        >
+      </mat-form-field>
+    </div>
+    <div class="full">
+      <mat-form-field appearance="outline">
+        <mat-label>Capa livro</mat-label>
+        <input
+          type="text"
+          matInput
+          placeholder="https://linkaqui.com"
+          formControlName="bookCover"
+        />
+        <mat-error *ngIf="form.get('bookCover')?.errors?.['required']"
+          >*Campo Obrigatório</mat-error
+        >
+        <mat-error *ngIf="form.get('bookCover')?.errors?.['minlength']"
+          >*Minímo de 20 caracteres</mat-error
+        >
+      </mat-form-field>
+    </div>
+    <div class="full">
+      <mat-form-field appearance="outline">
+        <mat-label>Link para leitura</mat-label>
+        <input
+          type="text"
+          matInput
+          placeholder="https://linkaqui.com"
+          formControlName="local"
+        />
+        <mat-error *ngIf="form.get('local')?.errors?.['required']"
+          >*Campo Obrigatório</mat-error
+        >
+        <mat-error *ngIf="form.get('local')?.errors?.['minlength']"
+          >*Minímo de 20 caracteres</mat-error
+        >
+      </mat-form-field>
+    </div>
+    <div class="btn">
+      <button
+        mat-raised-button
+        color="primary"
+        (click)="send()"
+        [disabled]="!form.valid"
+      >
+        ENVIAR
+      </button>
+      <button mat-raised-button color="warn" routerLink="/">CANCELAR</button>
+    </div>
+  </form>
+</div>

@@ -5,6 +5,9 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatInputModule } from '@angular/material/input';
 import { MatButtonModule } from '@angular/material/button';
 import { MatDialogModule } from '@angular/material/dialog';
+import { MatDatepickerModule } from '@angular/material/datepicker';
+import { MatNativeDateModule } from '@angular/material/core';
+import { MatSelectModule } from '@angular/material/select';
 
 import { HttpClientModule } from '@angular/common/http';
 import { ReactiveFormsModule } from '@angular/forms';
@@ -21,6 +24,8 @@ import { AuthComponent } from './pages/auth/auth.component';
 import { CategoryComponent } from './pages/category/category.component';
 import { LivroModalComponent } from './components/livro/livro-modal/livro-modal.component';
 import { FontDirective } from './directives/font.directive';
+import { LivroLaunchComponent } from './components/livro/livro-launch/livro-launch.component';
+import { LaunchComponent } from './pages/launch/launch.component';
 
 @NgModule({
   declarations: [
@@ -34,6 +39,8 @@ import { FontDirective } from './directives/font.directive';
     CategoryComponent,
     LivroModalComponent,
     FontDirective,
+    LivroLaunchComponent,
+    LaunchComponent,
   ],
   imports: [
     BrowserModule,
@@ -45,6 +52,9 @@ import { FontDirective } from './directives/font.directive';
     ReactiveFormsModule,
     MatButtonModule,
     MatDialogModule,
+    MatDatepickerModule,
+    MatNativeDateModule,
+    MatSelectModule,
   ],
   providers: [],
   bootstrap: [AppComponent],
