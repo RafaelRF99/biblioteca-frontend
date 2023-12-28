@@ -7,8 +7,9 @@
     <p><b>Descrição:</b> {{ livro.description }}</p>
   </div>
   <p></p>
-  <p>Categoria: {{ livro.category | titlecase }}</p>
-  <p>Lançamento: {{ livro.launch | date : "yyyy" }}</p>
+  <p><b>Autor:</b> {{ livro.author | titlecase }}</p>
+  <p><b>Categoria:</b> {{ livro.category | titlecase }}</p>
+  <p><b>Lançamento:</b> {{ livro.launch | date : "yyyy" }}</p>
   <a href="{{ livro.local }}" target="_blank">
     <button mat-raised-button color="primary">LER LIVRO</button>
   </a>
