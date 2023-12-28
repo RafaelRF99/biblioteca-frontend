@@ -1,7 +1,4 @@
-<div
-  class="container"
-  [ngClass]="{ widthMedium: largeStatus, widthSmall: !largeStatus }"
->
+<div class="container" [ngClass]="{ widthMedium: largeStatus, widthSmall: !largeStatus }">
   <span class="icon" (click)="modify()">
     <b>{{ largeStatus ? "BTread" : "BT" }}</b>
   </span>
@@ -17,10 +14,7 @@
     </div>
     <div class="options" *ngFor="let category of categories; let i = index">
       <hr />
-      <div
-        class="items"
-        (click)="handleOption(i); largeStatus ? null : handleItems(i)"
-      >
+      <div class="items" (click)="handleOption(i); largeStatus ? null : handleItems(i)">
         <div>
           <mat-icon>category</mat-icon>
           <p *ngIf="largeStatus">{{ category.name }}</p>
@@ -28,16 +22,13 @@
         <mat-icon>check_box_outline_blank</mat-icon>
       </div>
       <span class="options_selected" *ngIf="category.options">
-        <div
-          *ngFor="let subcategory of category.subcategories"
-          (click)="handleCategory(subcategory)"
-        >
+        <div *ngFor="let subcategory of category.subcategories" (click)="handleCategory(subcategory)">
           {{ subcategory }}
         </div>
       </span>
     </div>
-    <hr />
-    <div class="item" routerLink="/launch">
+    <hr *ngIf="Authstatus" />
+    <div class="item" routerLink="/launch" *ngIf="Authstatus">
       <mat-icon>book</mat-icon>
       <p *ngIf="largeStatus">Enviar</p>
     </div>

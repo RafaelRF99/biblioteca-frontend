@@ -19,6 +19,8 @@ export class SidebarComponent implements OnInit {
     },
   ];
 
+  Authstatus!: boolean;
+
   constructor(
     private service: SizeService,
     private route: Router,
@@ -34,6 +36,7 @@ export class SidebarComponent implements OnInit {
     window.addEventListener('resize', () => {
       this.service.checkWindowSize();
     });
+    this.Authstatus = !!localStorage.getItem('token');
   }
 
   modify() {
