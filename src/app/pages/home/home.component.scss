@@ -9,10 +9,6 @@
     flex-direction: column;
     gap: 1rem;
 
-    padding: 1rem 0;
-
-    overflow-x: scroll;
-    scrollbar-width: thin;
 
     .category {
       font-size: 2rem;
@@ -21,7 +17,12 @@
 
     .books {
       display: flex;
+
+      overflow-x: scroll;
+      scrollbar-width: thin;
       gap: 2rem;
+      
+      padding: 1rem;
     }
   }
 }
