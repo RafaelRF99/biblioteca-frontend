@@ -1,6 +1,7 @@
 import { Component, HostListener, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { categoryList } from 'src/app/constants/category';
+import { AuthService } from 'src/app/services/auth.service';
 import { LivroService } from 'src/app/services/livro.service';
 import { SizeService } from 'src/app/services/size.service';
 
@@ -24,7 +25,8 @@ export class SidebarComponent implements OnInit {
   constructor(
     private service: SizeService,
     private route: Router,
-    private livroService: LivroService
+    private livroService: LivroService,
+    private auth: AuthService
   ) {}
 
   ngOnInit(): void {
@@ -63,5 +65,9 @@ export class SidebarComponent implements OnInit {
   handleCategory(category: string) {
     this.livroService.setSelectedCategory(category.toLocaleLowerCase());
     this.route.navigate(['/category', category.toLocaleLowerCase()]);
+  }
+
+  logout() {
+    this.auth.logout();
   }
 }

@@ -38,4 +38,8 @@
       <p *ngIf="largeStatus">Admin</p>
     </div>
   </div>
+  <div class="logout" routerLink="/auth" *ngIf="Authstatus" (click)="logout()">
+    <mat-icon>logout</mat-icon>
+    <p>Logout</p>
+  </div>
 </div>

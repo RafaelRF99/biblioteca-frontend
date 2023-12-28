@@ -7,6 +7,8 @@ import {
   FormGroup,
   FormBuilder,
 } from '@angular/forms';
+import { Router } from '@angular/router';
+import { AuthService } from 'src/app/services/auth.service';
 
 @Component({
   selector: 'app-auth',
@@ -16,7 +18,11 @@ import {
 export class AuthComponent implements OnInit {
   form!: FormGroup;
 
-  constructor(private formBuilder: FormBuilder) {}
+  constructor(
+    private formBuilder: FormBuilder,
+    private auth: AuthService,
+    private router: Router
+  ) {}
 
   ngOnInit(): void {
     this.form = this.formBuilder.group({
@@ -26,8 +32,18 @@ export class AuthComponent implements OnInit {
       ],
       pass: [
         null,
-        Validators.compose([Validators.required, Validators.minLength(6)]),
+        Validators.compose([Validators.required, Validators.minLength(4)]),
       ],
+    });
+  }
+
+  handleLogin() {
+    this.auth.login(this.form.value).subscribe(() => {
+      try {
+        this.router.navigate(['/']);
+      } catch (error) {
+        console.log('Algo de errado aconteceu, tente mais tarde...', error);
+      }
     });
   }
 }
