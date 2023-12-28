@@ -11,8 +11,8 @@
       <mat-label>Senha</mat-label>
       <input type="password" matInput formControlName="pass" />
       <mat-error *ngIf="form.get('pass')?.errors?.['required']">*Senha obrigatória</mat-error>
-      <mat-error *ngIf="form.get('pass')?.errors?.['minlength']">*Qtd minima 6</mat-error>
+      <mat-error *ngIf="form.get('pass')?.errors?.['minlength']">*Qtd minima 4 caracteres</mat-error>
     </mat-form-field>
-    <button mat-raised-button color="primary" (click)="handleLogin()">ENTRAR</button>
+    <button mat-raised-button color="primary" [disabled]="!form.valid" (click)="handleLogin()">ENTRAR</button>
   </form>
 </div>
