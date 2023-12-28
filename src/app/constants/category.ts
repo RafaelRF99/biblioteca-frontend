@@ -1,8 +1,10 @@
-export const categoryList: string[] = [
+const category: string[] = [
   'Ação',
   'Terror',
-  'Animição',
   'Comédia',
   'Filosofia',
+  'Romance',
   'Literatura Brasileira',
 ];
+
+export const categoryList = category.sort();
