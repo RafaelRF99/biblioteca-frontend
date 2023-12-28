@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
+import { Observable, map } from 'rxjs';
 import { ILivro } from '../interfaces/livro';
 import { environment } from 'src/environments/environment';
 
@@ -23,6 +23,18 @@ export class LivroService {
     )}`;
 
     return this.http.get<ILivro[]>(url);
+  }
+
+  filterBook(text: string): Observable<ILivro[]> {
+    return this.http
+      .get<ILivro[]>(this.apiUrl)
+      .pipe(
+        map((livros) =>
+          livros.filter((livro) =>
+            livro.title.toLowerCase().includes(text.toLowerCase())
+          )
+        )
+      );
   }
 
   getAll(): Observable<ILivro[]> {
