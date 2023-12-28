@@ -46,4 +46,8 @@ export class AuthComponent implements OnInit {
       }
     });
   }
+
+  onBack() {
+    this.router.navigate(['/']);
+  }
 }

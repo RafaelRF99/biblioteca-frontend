@@ -14,5 +14,6 @@
       <mat-error *ngIf="form.get('pass')?.errors?.['minlength']">*Qtd minima 4 caracteres</mat-error>
     </mat-form-field>
     <button mat-raised-button color="primary" [disabled]="!form.valid" (click)="handleLogin()">ENTRAR</button>
+    <button mat-raised-button color="warn" (click)="onBack()">VOLTAR</button>
   </form>
 </div>
