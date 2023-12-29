@@ -1,4 +1,4 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable, map } from 'rxjs';
 import { ILivro } from '../interfaces/livro';
@@ -40,6 +40,16 @@ export class LivroService {
   }
 
   create(livro: ILivro): Observable<ILivro> {
-    return this.http.post<ILivro>(this.apiUrl, livro);
+    const token = localStorage.getItem('token');
+    if (!token) {
+      throw new Error('Token inválido');
+    }
+
+    const headers = new HttpHeaders({
+      'Content-Type': 'application/json',
+      'x-access-token': token,
+    });
+
+    return this.http.post<ILivro>(this.apiUrl, livro, { headers });
   }
 }
