@@ -4,11 +4,6 @@ import { Router } from '@angular/router';
 import { Observable, tap } from 'rxjs';
 import { environment } from 'src/environments/environment';
 
-interface IUser {
-  user: string;
-  pass: string;
-}
-
 @Injectable({
   providedIn: 'root',
 })
