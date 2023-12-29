@@ -30,9 +30,7 @@ export class LivroService {
       .get<ILivro[]>(this.apiUrl)
       .pipe(
         map((livros) =>
-          livros.filter((livro) =>
-            livro.title.toLowerCase().includes(text.toLowerCase())
-          )
+          livros.filter((livro) => livro.title.toLowerCase().includes(text))
         )
       );
   }

@@ -1,0 +1,22 @@
+<mat-form-field appearance="outline" class="filter">
+  <mat-label>Nome do livro</mat-label>
+  <input
+    type="text"
+    placeholder="Digite aqui..."
+    matInput
+    [formControl]="myControl"
+    [matAutocomplete]="auto"
+    (blur)="handleFilter()"
+    (keyup.enter)="handleFilter()"
+  />
+  <mat-autocomplete
+    autoActiveFirstOption
+    #auto="matAutocomplete"
+    [displayWith]="displayFn"
+    (optionSelected)="onOptionSelected($event)"
+  >
+    <mat-option *ngFor="let option of filteredOptions | async" [value]="option">
+      {{ option.title }}
+    </mat-option>
+  </mat-autocomplete>
+</mat-form-field>

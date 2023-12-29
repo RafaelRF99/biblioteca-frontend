@@ -1,19 +1,12 @@
-<main class="container" [ngClass]="{ containerM: largeStatus, containerS: !largeStatus }">
-    <h1 appFont>Pesquisar livro</h1>
-    <div class="search">
-        <mat-form-field class="filter" appearance="outline">
-            <mat-label>Nome do livro</mat-label>
-            <input type="text" matInput placeholder="Harry Potter" [(ngModel)]="search" (blur)="handleSearch()"
-                (keyup.enter)="handleSearch()">
-            <mat-icon matSuffix>search</mat-icon>
-        </mat-form-field>
-    </div>
-    <div class="books" *ngIf="searchStatus ; else write">
-        <div *ngFor="let book of books">
-            <app-livro-card [livro]="book"></app-livro-card>
-        </div>
-    </div>
+<main
+  class="container"
+  [ngClass]="{ containerM: largeStatus, containerS: !largeStatus }"
+>
+  <h1 appFont>Pesquisar livro</h1>
+  <div class="search">
+    <app-filter (selected)="onBookSelected($event)"></app-filter>
+  </div>
+  <div class="books" *ngIf="searchStatus">
+    <app-livro-card [livro]="book"></app-livro-card>
+  </div>
 </main>
-<ng-template #write>
-    <p>Pesquise seu livro aqui...</p>
-</ng-template>

@@ -8,6 +8,7 @@ import { MatDialogModule } from '@angular/material/dialog';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material/core';
 import { MatSelectModule } from '@angular/material/select';
+import { MatAutocompleteModule } from '@angular/material/autocomplete';
 
 import { HttpClientModule } from '@angular/common/http';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
@@ -26,6 +27,7 @@ import { LivroModalComponent } from './components/livro/livro-modal/livro-modal.
 import { FontDirective } from './directives/font.directive';
 import { LivroLaunchComponent } from './components/livro/livro-launch/livro-launch.component';
 import { LaunchComponent } from './pages/launch/launch.component';
+import { FilterComponent } from './components/filter/filter.component';
 
 @NgModule({
   declarations: [
@@ -41,6 +43,7 @@ import { LaunchComponent } from './pages/launch/launch.component';
     FontDirective,
     LivroLaunchComponent,
     LaunchComponent,
+    FilterComponent,
   ],
   imports: [
     BrowserModule,
@@ -56,6 +59,7 @@ import { LaunchComponent } from './pages/launch/launch.component';
     MatDatepickerModule,
     MatNativeDateModule,
     MatSelectModule,
+    MatAutocompleteModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

@@ -12,20 +12,13 @@
   .search {
     display: flex;
     justify-content: center;
-
-    .filter {
-      width: 500px;
-      max-width: 500px;
-    }
   }
 
   .books {
     display: flex;
-
-    overflow-x: scroll;
-    scrollbar-width: thin;
+    justify-content: center;
     gap: 2rem;
-    
+
     padding: 1rem;
   }
 }
