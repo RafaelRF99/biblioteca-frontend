@@ -27,4 +27,9 @@ export class AuthService {
     location.reload();
     this.router.navigate(['/']);
   }
+
+  getToken() {
+    const token = !!localStorage.getItem('token');
+    return token;
+  }
 }
