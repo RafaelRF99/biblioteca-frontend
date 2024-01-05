@@ -10,7 +10,10 @@
   <p><b>Autor:</b> {{ livro.author | titlecase }}</p>
   <p><b>Categoria:</b> {{ livro.category | titlecase }}</p>
   <p><b>Lançamento:</b> {{ livro.launch | date : "yyyy" }}</p>
-  <a href="{{ livro.local }}" target="_blank">
+  <a [href]="livro.local" target="_blank">
     <button mat-raised-button color="primary">LER LIVRO</button>
   </a>
+  <span>
+    <button (click)="handleEdit()" mat-raised-button color="primary" *ngIf="token">EDITAR</button>
+  </span>
 </div>

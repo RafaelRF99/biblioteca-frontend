@@ -7,6 +7,7 @@ import { AuthComponent } from './pages/auth/auth.component';
 import { CategoryComponent } from './pages/category/category.component';
 import { LaunchComponent } from './pages/launch/launch.component';
 import { AuthGuard } from './guards/auth.guard';
+import { EditComponent } from './pages/edit/edit.component';
 
 const routes: Routes = [
   {
@@ -28,6 +29,11 @@ const routes: Routes = [
   {
     path: 'launch',
     component: LaunchComponent,
+    canActivate: [AuthGuard],
+  },
+  {
+    path: 'edit/:id',
+    component: EditComponent,
     canActivate: [AuthGuard],
   },
 ];

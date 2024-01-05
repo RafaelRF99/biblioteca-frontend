@@ -28,6 +28,8 @@ import { FontDirective } from './directives/font.directive';
 import { LivroLaunchComponent } from './components/livro/livro-launch/livro-launch.component';
 import { LaunchComponent } from './pages/launch/launch.component';
 import { FilterComponent } from './components/filter/filter.component';
+import { EditComponent } from './pages/edit/edit.component';
+import { LivroEditComponent } from './components/livro/livro-edit/livro-edit.component';
 
 @NgModule({
   declarations: [
@@ -44,6 +46,8 @@ import { FilterComponent } from './components/filter/filter.component';
     LivroLaunchComponent,
     LaunchComponent,
     FilterComponent,
+    EditComponent,
+    LivroEditComponent,
   ],
   imports: [
     BrowserModule,
