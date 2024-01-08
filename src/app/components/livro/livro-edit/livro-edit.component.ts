@@ -20,8 +20,19 @@ export class LivroEditComponent implements OnInit {
     private service: LivroService,
     private router: Router,
     private route: ActivatedRoute
-  ) {
+  ) {}
+
+  ngOnInit(): void {
+    this.categories = categoryList;
+    this.bookId = this.route.snapshot.params['id'];
+    this.service.getAll().subscribe((livros) => {
+      const index = livros.find((livro) => livro._id === this.bookId);
+      if (index) {
+        this.form.patchValue(index);
+      }
+    });
     this.form = this.formBuilder.group({
+      _id: [this.bookId],
       title: [null, Validators.required],
       author: [null, Validators.required],
       description: [
@@ -42,21 +53,29 @@ export class LivroEditComponent implements OnInit {
     });
   }
 
-  ngOnInit(): void {
-    this.categories = categoryList;
-    this.bookId = this.route.snapshot.params['id'];
-    this.service.getAll().subscribe((livros) => {
-      const index = livros.find((livro) => livro._id === this.bookId);
-      if (index) {
-        this.form.patchValue(index);
+  delete() {
+    this.service.delete(this.bookId).subscribe(
+      () => {
+        console.log('Livro excluido!');
+        this.router.navigate(['/']);
+      },
+      (error) => {
+        console.log(error);
       }
-    });
+    );
   }
 
   send() {
     if (this.form.valid) {
-      this.service.create(this.form.value).subscribe();
-      this.router.navigate(['/']);
+      this.service.edit(this.form.value).subscribe(
+        () => {
+          console.log('Editado com sucesso!');
+          this.router.navigate(['/']);
+        },
+        (error) => {
+          console.log(error);
+        }
+      );
     }
   }
 }

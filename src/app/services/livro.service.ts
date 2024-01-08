@@ -1,7 +1,7 @@
+import { ILivro } from './../interfaces/livro';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable, map } from 'rxjs';
-import { ILivro } from '../interfaces/livro';
 import { environment } from 'src/environments/environment';
 
 @Injectable({
@@ -46,10 +46,41 @@ export class LivroService {
     }
 
     const headers = new HttpHeaders({
-      'Content-Type': 'application/json',
       'x-access-token': token,
     });
 
     return this.http.post<ILivro>(this.apiUrl, livro, { headers });
+  }
+
+  edit(livro: ILivro): Observable<ILivro> {
+    const url = `${this.apiUrl}/${livro._id}`;
+
+    const token = localStorage.getItem('token');
+
+    if (!token) {
+      throw new Error('Token inválido');
+    }
+
+    const headers = new HttpHeaders({
+      'x-access-token': token,
+    });
+
+    return this.http.put<ILivro>(url, livro, { headers });
+  }
+
+  delete(id: string): Observable<ILivro> {
+    const url = `${this.apiUrl}/${id}`;
+
+    const token = localStorage.getItem('token');
+
+    if (!token) {
+      throw new Error('Token inválido');
+    }
+
+    const headers = new HttpHeaders({
+      'x-access-token': token,
+    });
+
+    return this.http.delete<ILivro>(url, { headers });
   }
 }
