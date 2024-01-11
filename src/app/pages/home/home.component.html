@@ -1,7 +1,4 @@
-<main
-  class="container"
-  [ngClass]="{ containerM: largeStatus, containerS: !largeStatus }"
->
+<main class="container">
   <div class="content" *ngIf="notFound; else not">
     <p class="category">Geral</p>
     <div class="books">

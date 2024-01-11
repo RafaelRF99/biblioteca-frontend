@@ -1,24 +1,18 @@
-import { Component, OnInit } from '@angular/core';
-import { Subscription } from 'rxjs';
+import { Component } from '@angular/core';
 import { ILivro } from 'src/app/interfaces/livro';
 import { LivroService } from 'src/app/services/livro.service';
-import { SizeService } from 'src/app/services/size.service';
 
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.scss'],
 })
-export class HomeComponent implements OnInit {
+export class HomeComponent {
   largeStatus: boolean = false;
-  subscription: Subscription;
   livros!: ILivro[];
   notFound!: boolean;
 
-  constructor(private service: SizeService, private http: LivroService) {
-    this.subscription = this.service.largeStatusChanged.subscribe((status) => {
-      this.largeStatus = status;
-    });
+  constructor(private http: LivroService) {
     this.http.getAll().subscribe((livro) => {
       try {
         this.livros = livro;
@@ -27,9 +21,5 @@ export class HomeComponent implements OnInit {
         this.notFound = false;
       }
     });
-  }
-
-  ngOnInit(): void {
-    this.largeStatus = this.service.largeStatus;
   }
 }
