@@ -1,14 +1,13 @@
 <div class="container">
-  <div class="main">
+  <div class="content">
     <ng-container *ngIf="handleAuth()">
       <app-sidebar></app-sidebar>
     </ng-container>
-    <div>
+    <div class="display">
       <router-outlet></router-outlet>
     </div>
   </div>
+  <ng-container *ngIf="handleAuth()">
+    <app-footer></app-footer>
+  </ng-container>
 </div>
-
-<ng-container *ngIf="handleAuth()">
-  <app-footer></app-footer>
-</ng-container>

@@ -17,11 +17,3 @@
     padding: 1rem;
   }
 }
-
-.containerM {
-  width: calc(100vw - calc(var(--sizeWidthSideMedium) + 3.1rem));
-}
-
-.containerS {
-  width: calc(100vw - calc(var(--sizeWidthSideSmall) + 3.1rem));
-}

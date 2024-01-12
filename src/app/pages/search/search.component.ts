@@ -9,23 +9,11 @@ import { SizeService } from 'src/app/services/size.service';
   templateUrl: './search.component.html',
   styleUrls: ['./search.component.scss'],
 })
-export class SearchComponent implements OnInit {
+export class SearchComponent {
   largeStatus: boolean = false;
-  subscription: Subscription;
 
   book!: ILivro;
   searchStatus!: boolean;
-
-  constructor(private size: SizeService, private livroService: LivroService) {
-    this.subscription = this.size.largeStatusChanged.subscribe((status) => {
-      this.largeStatus = status;
-    });
-  }
-
-  ngOnInit(): void {
-    this.largeStatus = this.size.largeStatus;
-    this.searchStatus = false;
-  }
 
   onBookSelected(selectedBook: ILivro) {
     this.book = selectedBook;
