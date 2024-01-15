@@ -56,3 +56,18 @@
     }
   }
   
+  @media (max-width: 630px) {
+    .container {
+      .form {
+        .two_input {
+          flex-wrap: wrap;
+  
+          mat-form-field {
+            max-width: 370px;
+            width: 100%;
+          }
+  
+        }
+      }
+    }
+  }
