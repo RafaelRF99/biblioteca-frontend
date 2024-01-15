@@ -21,6 +21,7 @@
     .two_input {
       display: flex;
       justify-content: space-between;
+
       mat-form-field {
         max-width: 370px;
         width: 50%;
@@ -48,9 +49,26 @@
       flex-direction: column;
       align-items: center;
       gap: 1rem;
+
       button {
         width: 100%;
         max-width: 370px;
+      }
+    }
+  }
+}
+
+@media (max-width: 630px) {
+  .container {
+    .form {
+      .two_input {
+        flex-wrap: wrap;
+
+        mat-form-field {
+          max-width: 370px;
+          width: 100%;
+        }
+
       }
     }
   }
