@@ -54,15 +54,17 @@ export class LivroEditComponent implements OnInit {
   }
 
   delete() {
-    this.service.delete(this.bookId).subscribe(
-      () => {
-        console.log('Livro excluido!');
-        this.router.navigate(['/']);
-      },
-      (error) => {
-        console.log(error);
-      }
-    );
+    if (window.confirm('Tem certeza que deseja excluir este livro?')) {
+      this.service.delete(this.bookId).subscribe(
+        () => {
+          console.log('Livro excluído com sucesso!');
+          this.router.navigate(['/']);
+        },
+        (error) => {
+          console.log(error);
+        }
+      );
+    }
   }
 
   send() {
