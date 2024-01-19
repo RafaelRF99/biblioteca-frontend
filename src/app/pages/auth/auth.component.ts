@@ -30,7 +30,7 @@ export class AuthComponent implements OnInit {
         null,
         Validators.compose([Validators.required, Validators.email]),
       ],
-      pass: [
+      password: [
         null,
         Validators.compose([Validators.required, Validators.minLength(4)]),
       ],
@@ -38,7 +38,10 @@ export class AuthComponent implements OnInit {
   }
 
   handleLogin() {
-    this.auth.login(this.form.value).subscribe(() => {
+    const { email, password } = this.form.value;
+
+    this.auth.login(email, password).subscribe(() => {
+      console.log(email, password);
       try {
         this.router.navigate(['/']);
       } catch (error) {

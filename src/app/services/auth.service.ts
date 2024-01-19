@@ -12,10 +12,10 @@ export class AuthService {
 
   constructor(private http: HttpClient, private router: Router) {}
 
-  login(user: { user: string; pass: string }): Observable<any> {
+  login(email: string, password: string): Observable<any> {
     const urlToken = this.apiAuth;
 
-    return this.http.post<any>(urlToken, user).pipe(
+    return this.http.post<any>(urlToken, { email, password }).pipe(
       tap((res) => {
         localStorage.setItem('token', res.token);
       })
